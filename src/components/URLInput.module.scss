@@ -1,0 +1,32 @@
+.urlInputWrapper {
+    padding: 1rem;
+    border: 1px solid var(--light-2);
+    width: 100%;
+    border-radius: 4rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    outline: 2px solid transparent;
+    transition: 200ms;
+    cursor: text;
+
+    input {
+        border: none;
+        outline: none;
+        font: inherit;
+        font-size: 1.2rem;
+    }
+
+    &:has(input:focus){
+        outline: 2px solid var(--secondary-light-1);
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: none;
+        cursor: pointer;
+    }
+}

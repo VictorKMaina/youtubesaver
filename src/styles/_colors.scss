@@ -1,0 +1,45 @@
+$colors: (
+    "primary": linear-gradient(98.84deg, #8e44ad 0%, #c0392b 100%),
+    "secondary": #7f439c,
+    "secondary-2": #c0392b,
+    "secondary-light-1": #ebd7f5,
+    "secondary-light-2": #f6d8d5,
+    "light-1": #f1edf2,
+    "light-2": #d3cdd5,
+    "white": #ffffff,
+    "dark": #18141a,
+    "muted": #615566,
+);
+
+:root {
+    @each $color, $val in $colors {
+        --#{$color}: #{$val};
+    }
+}
+
+@each $color, $val in $colors {
+    @if $color == "primary" {
+        .text-#{$color} {
+            background: map-get($colors, "secondary-2");
+            background: -webkit-linear-gradient(
+                98.84deg,
+                #8e44ad 0%,
+                #c0392b 100%
+            );
+            background: $val;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .bg-#{$color} {
+            background: $val;
+        }
+    } @else {
+        .text-#{$color} {
+            color: $val;
+        }
+        .bg-#{$color} {
+            background-color: $val;
+        }
+    }
+}
