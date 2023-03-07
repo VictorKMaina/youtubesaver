@@ -27,13 +27,14 @@ body {
 div#root {
     padding: 1rem;
     display: grid;
-    gap: 4rem;
+    gap: 2rem;
     min-height: 100vh;
     margin: auto;
     max-width: 900px;
-
+    
     @include min-width(mobile-l) {
         grid-template-rows: 1fr 1.5fr auto;
+        gap: 4rem;
     }
 }
 

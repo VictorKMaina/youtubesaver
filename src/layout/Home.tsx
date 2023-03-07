@@ -1,12 +1,18 @@
-import { CSSProperties } from "react"
+import { FormEvent } from "react"
 import Button from "../components/Button"
 import URLInput from "../components/URLInput"
 import FormatSelector from "../components/FormatSelector"
 import style from "./Home.module.scss"
+import { PageProps } from "../types"
 
-export default function Home() {
+export default function Home({ onPageChange }: PageProps) {
+    function handleSubmit(e: FormEvent) {
+        e.preventDefault()
+        onPageChange("convert")
+    }
+
     return (
-        <form className={style.form}>
+        <form onSubmit={handleSubmit} className={style.form}>
             <URLSection />
             <FormatSelector />
         </form>
@@ -21,7 +27,9 @@ function URLSection() {
             </h2>
             <div className={style.urlBarWrapper}>
                 <URLInput />
-                <Button>Convert</Button>
+                <Button type="submit" icon="ic:round-refresh">
+                    Convert
+                </Button>
             </div>
         </div>
     )

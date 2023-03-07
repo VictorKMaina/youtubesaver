@@ -1,0 +1,25 @@
+@use "../styles/breakpoints" as *;
+
+.downloadButton {
+    @include min-width(mobile-l) {
+        width: max-content;
+    }
+}
+
+.completeWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+
+        @include min-width(mobile-l) {
+            flex-direction: row;
+        }
+    }
+}

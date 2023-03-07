@@ -4,23 +4,31 @@ import concatClassNames from "../helpers/concatClassnames"
 import { PropsWithChildren } from "react"
 
 interface ButtonProps extends PropsWithChildren {
+    icon?: string | null
     type?: "button" | "submit" | "reset" | undefined
     variant?: "primary" | "secondary"
+    className?: string
     onClick?: (e: React.MouseEvent) => void
 }
 
 export default function Button({
     children,
+    icon = null,
     type = "button",
     variant = "primary",
+    className = "",
     onClick,
 }: ButtonProps) {
-    const classNames = concatClassNames(styles.button, styles[variant])
+    const classNames = concatClassNames(
+        styles.button,
+        styles[variant],
+        className
+    )
 
     return (
         <button className={classNames} type={type} onClick={onClick}>
             <span>{children}</span>
-            <Icon icon="ic:round-refresh" style={{ fontSize: "1.25em" }} />
+            {icon && <Icon icon={icon} style={{ fontSize: "1.25em" }} />}
         </button>
     )
 }
