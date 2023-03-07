@@ -1,31 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@use "./breakpoints" as *;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-html, body {
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #18141A;
+:root {
+    --text-base: 16px;
+    --text-scale: 1.125;
+
+    @include min-width(mobile-l){
+        --text-scale: 1.25;
+    }
 }
 
-.title, h1 {
+@function fontSize($size) {
+    $scale: 1;
+
+    @for $i from 0 to $size {
+        $scale: calc($scale * var(--text-scale));
+    }
+
+    @return calc(var(--text-base) * $scale);
+}
+
+html,
+body {
+    font-family: "Inter", sans-serif;
+    font-size: fontSize(0);
+    font-weight: 400;
+    color: #18141a;
+}
+
+.title,
+h1 {
     font: inherit;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: fontSize(5);
 }
 
 .subtitle {
     font: inherit;
-    font-size: 1.5rem;
+    font-size: fontSize(2);
     font-weight: 400;
 }
 
-.paragraph, p {
+.paragraph,
+p {
     font: inherit;
-    font-size: 1.25rem;
+    font-size: fontSize(1);
 }
 
-.small, small {
+.small,
+small {
     font: inherit;
     font-weight: 700;
-    font-size: 0.94rem;
+    font-size: 0.889rem;
 }

@@ -1,0 +1,22 @@
+@use "../styles/breakpoints" as *;
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+
+    img {
+        margin-bottom: 1rem;
+        width: 100%;
+        max-width: 15rem;
+
+        @include min-width(mobile-m){
+            max-width: 20rem;
+        }
+
+        @include min-width(mobile-l){
+            max-width: 25rem;
+        }
+    }
+}

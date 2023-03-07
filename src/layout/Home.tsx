@@ -2,15 +2,11 @@ import { CSSProperties } from "react"
 import Button from "../components/Button"
 import URLInput from "../components/URLInput"
 import FormatSelector from "../components/FormatSelector"
+import style from "./Home.module.scss"
 
 export default function Home() {
-    const formStyles: CSSProperties = {
-        display: "flex",
-        flexFlow: "column",
-        gap: "3rem",
-    }
     return (
-        <form style={formStyles}>
+        <form className={style.form}>
             <URLSection />
             <FormatSelector />
         </form>
@@ -18,18 +14,12 @@ export default function Home() {
 }
 
 function URLSection() {
-    const urlBarWrapperStyles: CSSProperties = {
-        display: "grid",
-        gridTemplateColumns: "1fr auto",
-        gap: "1rem",
-    }
-
     return (
         <div className="url-bar-section">
             <h2 style={{ marginBottom: "1rem" }} className="small text-muted">
                 Paste your YouTube link here
             </h2>
-            <div className="url-bar-wrapper" style={urlBarWrapperStyles}>
+            <div className={style.urlBarWrapper}>
                 <URLInput />
                 <Button>Convert</Button>
             </div>

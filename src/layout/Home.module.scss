@@ -1,0 +1,19 @@
+@use "../styles/breakpoints" as *;
+
+.form {
+    display: flex;
+    flex-flow: column;
+    gap: 3rem;
+}
+
+.urlBarWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include min-width(mobile-l) {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+    }
+}

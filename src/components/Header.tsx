@@ -1,17 +1,12 @@
 import { CSSProperties } from "react"
 import logo from "../assets/logo.svg"
+import style from "./Header.module.scss"
 
 export default function Header() {
-    const headerStyles: CSSProperties = {
-        textAlign: "center",
-        marginBottom: "3rem",
-    }
-
     return (
-        <header style={headerStyles}>
+        <header className={style.header}>
             <h1>
                 <img
-                    style={{ marginBottom: "1rem" }}
                     src={logo}
                     alt="YouTubeSaver logo"
                 />
